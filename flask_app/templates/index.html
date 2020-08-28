@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Blood Cell CNN</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div>
+      <h1>
+        Rede neural convolucional - Classificador de imagens de células
+        sanguíneas
+      </h1>
+      <div class="form">
+        <form action="/predict" method="post" enctype="multipart/form-data">
+          <input id="fileInput" type="file" name="image" value="Upload" />
+          <input id="submitInput" type="submit" value="Predict" />
+        </form>
+      </div>
+    </div>
+    {% if prediction_output %}
+    <table>
+      <tr>
+        <th>Tipo de célula</th>
+        <th>Probabilidade</th>
+      </tr>
+      <tr>
+        <td>Neutrófilo</td>
+        <td>{{prediction_output[1]}}</td>
+      </tr>
+      <tr>
+        <td>Eosinófilo</td>
+        <td>{{prediction_output[2]}}</td>
+      </tr>
+      <tr>
+        <td>Monócito</td>
+        <td>{{prediction_output[3]}}</td>
+      </tr>
+      <tr>
+        <td>Linfócito</td>
+        <td>{{prediction_output[4]}}</td>
+      </tr>
+    </table>
+    {% endif %}
+  </body>
+</html>

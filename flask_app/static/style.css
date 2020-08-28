@@ -1,0 +1,61 @@
+ * {
+    font-family: "Roboto", sans-serif;
+    color: #000;
+  }
+  
+  body {
+    background-color: #dddddd;
+    
+    margin: 20px;
+  }
+  
+  form {
+    margin: 20px;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+    border: 5px solid #fff;
+  }
+  
+  td,
+  th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  input {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  input::before {
+    content: "Choose File";
+    color: black;
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 500;
+    font-size: 12pt;
+  }
+  input:hover::before {
+    border-color: black;
+  }
+  
