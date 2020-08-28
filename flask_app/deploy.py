@@ -26,7 +26,7 @@ def make_prediction():
         img = Image.open(file)
         img = img.resize((80, 60))
         img = img.transpose(Image.ROTATE_90)
-        img = np.asarray(img)
+        img = np.asarray(img)/255.0
         img = np.array([img])
         
         prediction_output = ['{:.2f}%'.format(x*100) for x in model.predict(img)[0]]
