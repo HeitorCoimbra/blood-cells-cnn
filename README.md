@@ -19,7 +19,26 @@ Dentro da pasta "valid" há uma série de imagens que pertencem à seção de te
 ### Arquitetura da rede
 A rede é uma simples rede neural convolucional com duas camadas de convoluções 3x3 e duas camadas lineares, sendo uma a camada de saída softmax. Para o input, as imagens de entrada sofrem um resize para o tamanho (80x60) para reduzir a quantidade de parâmetros. 
 
+```
+model = Sequential()
+model.add(Conv2D(32, (3, 3),
+                 activation='relu',
+                 input_shape=input_shape))
+model.add(Conv2D(64, (3, 3), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Flatten())
+model.add(Dense(128, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(num_classes, activation='softmax'))
+model.compile(loss=categorical_crossentropy,
+              optimizer=Adam(),
+              metrics=['accuracy']) 
+```
+
 Além disso, uma camada de Dropout segue a ultima camada convolucional, e mais uma segue a primeira camada linear de modo a regularizar a rede e mitigar efeitos de overfitting na base de treino.
+
+Por fim, a loss utilizada foi a entropia cruzada categórica e o backpropagation e otimização foram feitos com o algoritmo Adam, ambos métodos considerados consistentes no estado da arte de deep learning.
 
 ### Treinamento da rede
 A rede foi treinada em uma [base de dados](https://www.kaggle.com/paultimothymooney/blood-cells) de imagens 640x480 de celulas sanguíneas pertencentes a uma de quatro categorias: Monócitos, Neutrófilos, Linfócitos e Eosinófilos. A diferença visual principal entre essas categorias é a fisiologia do núcleo da célula, que varia em quantidade e formato.
@@ -27,7 +46,6 @@ A rede foi treinada em uma [base de dados](https://www.kaggle.com/paultimothymoo
 A base oferece dois conjuntos de dados, um é o conjunto de fotos de microscopia reais, e o segundo é um conjunto que passou por data augmentation, ou seja, transformações sutis nas imagens originais de modo a mitigar o desequilíbrio de classes e aumentar a base total de fotos. O conjunto que foi utilizado no projeto foi o de imagens aumentadas, de modo a aumentar a robustez do modelo e regularizar os resultados.
 
 A acurácia final alcançada foi de 83.2% e outras métricas de avaliação foram:
-
 
 || Precisão  | Recall | F1-Score |
 |---|-------|------|------|
