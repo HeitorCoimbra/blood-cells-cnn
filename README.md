@@ -3,14 +3,17 @@
 ## Aplicação web feita em Flask para teste de funcionalidade de CNN para classificação de células sanguíneas
 
 ### Instalação
-Utilizando o pip:
+Utilizando o pip em qualquer uma das duas pastas principais (cada projeto tem requirementes diferentes, a webapp, ou o notebook de treinamento da rede):
 
 ```pip install -r requirements.txt``` 
 
 ### Utilização
-Para rodar a aplicação web basta rodar o código do arquivo deploy.py:
+Para rodar a aplicação web basta rodar o código do arquivo deploy.py na pasta flask-app:
 
-```python deploy.py```
+```
+cd flask_app
+python deploy.py
+```
 
 A aplicação estará localizada em localhost:5000, onde pode ser feito o upload de uma imagem e retornará a tabela de probabilidades de classificação.
 
