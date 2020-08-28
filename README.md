@@ -28,8 +28,9 @@ A base oferece dois conjuntos de dados, um é o conjunto de fotos de microscopia
 
 A acurácia final alcançada foi de 83.2% e outras métricas de avaliação foram:
 
+
 || Precisão  | Recall | F1-Score |
-|-|-------|------|------|---|
+|---|-------|------|------|
 |Neutrófilos| 0.64  | 0.77 | 0.70 |
 |Eosinófilos| 0.72  | 0.74 | 0.73 |
 |Monócitos| 0.96  | 0.76 | 0.85 |
@@ -37,4 +38,6 @@ A acurácia final alcançada foi de 83.2% e outras métricas de avaliação fora
 
 Alguns gráficos dos resultados e do treinamento:
 
-![Imgur](https://i.imgur.com/VDngu5B.png)![Imgur](https://i.imgur.com/oFTwSgI.png)
+![Imgur](https://i.imgur.com/VDngu5B.png)
+
+![Imgur](https://i.imgur.com/oFTwSgI.png)
